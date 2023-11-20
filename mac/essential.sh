@@ -80,6 +80,7 @@ function choice_option(){
         0)
             # 종료
             echo "Thank You :)"
+            rm "$0"
             exit 0
             ;;
         *)
