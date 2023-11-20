@@ -22,9 +22,9 @@ function install_brew(){
 function set_user_dir(){
     mkdir -p ${USER_DIR}
     cd ${USER_DIR}
-    curl -O -L ${GIT_RAW}/${GIT_REPO}/${GIT_BRANCH}/brew/common.Brewfile
-    curl -O -L ${GIT_RAW}/${GIT_REPO}/${GIT_BRANCH}/brew/office.Brewfile
-    curl -O -L ${GIT_RAW}/${GIT_REPO}/${GIT_BRANCH}/brew/develop.Brewfile
+    curl -O -L ${GIT_RAW}/${GIT_REPO}/${GIT_BRANCH}/mac/brew/common.Brewfile
+    curl -O -L ${GIT_RAW}/${GIT_REPO}/${GIT_BRANCH}/mac/brew/office.Brewfile
+    curl -O -L ${GIT_RAW}/${GIT_REPO}/${GIT_BRANCH}/mac/brew/develop.Brewfile
 
     read -r -s -p "[sudo] sudo password for $(whoami):" USER_PW
 }
