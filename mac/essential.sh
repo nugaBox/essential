@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USER_ID=`whoami`
-USER_DIR=/Users/${USERID}/.essential
+USER_DIR=/Users/${USER_ID}/.essential
 USER_PW=""
 GIT_RAW="https://raw.githubusercontent.com"
 GIT_REPO="/nugaBox/essential"
