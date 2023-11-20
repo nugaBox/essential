@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USER_ID=`whoami`
-USER_DIR=/Users/${USER_ID}/.essential
+USER_DIR=/Users/$(whoami)/.essential
 USER_PW=""
 GIT_RAW="https://raw.githubusercontent.com"
 GIT_REPO="/nugaBox/essential"
@@ -15,7 +15,7 @@ function install_brew(){
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         echo "HomeBrew가 정상적으로 설치되었습니다"
     else
-        echo "HomeBrew가 설치되어 있습니다"
+        echo "HomeBrew가 이미 설치되어 있습니다"
     fi   
 }
 
@@ -26,18 +26,18 @@ function set_user_dir(){
     curl -O -L ${GIT_RAW}/${GIT_REPO}/${GIT_BRANCH}/mac/brew/office.Brewfile
     curl -O -L ${GIT_RAW}/${GIT_REPO}/${GIT_BRANCH}/mac/brew/develop.Brewfile
 
-    read -r -s -p "[sudo] sudo password for $(whoami):" USER_PW
+    read -r -s -p "[sudo] '$(whoami)'의 비밀번호를 입력하세요: " USER_PW
 }
 
 function choice_option(){
     echo ""
-    echo "어떤 작업을 실행하시겠습니까?"
-    echo "[1] 전체 설치 (필수+오피스+개발)"
-    echo "[2] Homebrew 설치"
-    echo "[3] 필수 App 설치"
-    echo "[4] 오피스 App 설치"
-    echo "[5] 개발용 패키지 & App 설치"
-    echo "[0] 종료"
+    echo -e "\033[1m어떤 작업을 실행하시겠습니까?"
+    echo -e "\033[34m[1]\033[0m 전체 설치 (필수+오피스+개발)"
+    echo -e "\033[34m[2]\033[0m Homebrew 설치"
+    echo -e "\033[34m[3]\033[0m 필수 App 설치"
+    echo -e "\033[34m[4]\033[0m 오피스 App 설치"
+    echo -e "\033[34m[5]\033[0m 개발용 패키지 & App 설치"
+    echo -e "\033[34m[0]\033[0m 종료"
     echo ""
     # 사용자 입력 받기
     read -p "번호 입력: " choice
